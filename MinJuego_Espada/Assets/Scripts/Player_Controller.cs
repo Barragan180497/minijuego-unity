@@ -12,6 +12,11 @@ public class Player_Controller : MonoBehaviour
     private bool canSlash = true;
     public float slashSpeed;
 
+    public bool derecha = false;
+    public bool izquierda = false;
+    public bool saltar = false;
+    public bool atacar = false;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -26,7 +31,9 @@ public class Player_Controller : MonoBehaviour
         anim.SetBool("isGround", isGround());
         Move();
         if (input().y > 0 && isGround())
+        {
             rb.velocity = new Vector2(rb.velocity.x, jump);
+        }
         Attacks();
     }
 
@@ -35,22 +42,22 @@ public class Player_Controller : MonoBehaviour
         bool running = (input().x != 0) ? true : false;
         anim.SetBool("Running", running);
         if (isGround())
+        {
             rb.velocity = new Vector2(input().x * speed, rb.velocity.y);
+        }
         else
+        {
             rb.velocity = new Vector2(input().x * speed * 0.75f, rb.velocity.y);
+        }
         float dir = (float)input().x;
         if (dir != 0)
+        {
             transform.localScale = new Vector3(dir, 0.25f, 0.25f);
+        }
     }
 
     void Attacks()
     {
-        /*if (Input.GetMouseButtonDown(0) && canShoot)
-        {
-            canShoot = false;
-            canSlash = false;
-            StartCoroutine(Shoot());
-        }*/
         if (Input.GetMouseButtonDown(0) && canSlash)
         {
             //canShoot = false;
@@ -59,15 +66,6 @@ public class Player_Controller : MonoBehaviour
         }
     }
 
-    /*IEnumerator Shoot()
-    {
-        //Instantiate  Bullet
-        anim.SetTrigger("Shoot");
-        yield return new WaitForSeconds(shootSpeed);
-        canShoot = true;
-        canSlash = true;
-    }*/
-
     IEnumerator Slash()
     {
         //Instantiate  slash effect
@@ -75,7 +73,6 @@ public class Player_Controller : MonoBehaviour
         //Do damage
         anim.SetTrigger("Slash");
         yield return new WaitForSeconds(slashSpeed);
-        //canShoot = true;
         canSlash = true;
     }
 
@@ -93,9 +90,13 @@ public class Player_Controller : MonoBehaviour
         Debug.DrawRay(playerPos(0.4f), -Vector2.up * 0.2f, Color.red);
         Debug.DrawRay(playerPos(-0.4f), -Vector2.up * 0.2f, Color.red);
         if (bottom1 || bottom2 || bottom3)
+        {
             return true;
+        }
         else
+        {
             return false;
+        }
     }
 
     public Vector2 input()
@@ -104,18 +105,26 @@ public class Player_Controller : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
             if (!Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.D))
+            {
                 _input.x = -0.25f;
+            }
         }
         else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
             if (!Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.A))
+            {
                 _input.x = 0.25f;
+            }
         }
         else
+        {
             _input.x = 0;
+        }
 
         if (Input.GetKeyDown(KeyCode.Space))
+        {
             _input.y = 1;
+        }
 
         return _input;
     }
