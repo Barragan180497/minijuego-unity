@@ -58,9 +58,14 @@ public class Player_Controller : MonoBehaviour
 
     void Attacks()
     {
-        if (Input.GetMouseButtonDown(0) && canSlash)
+        /*if (Input.GetMouseButtonDown(0) && canSlash)
         {
             //canShoot = false;
+            canSlash = false;
+            StartCoroutine(Slash());
+        }*/
+        if (atacar && canSlash)
+        {
             canSlash = false;
             StartCoroutine(Slash());
         }
@@ -102,7 +107,7 @@ public class Player_Controller : MonoBehaviour
     public Vector2 input()
     {
         Vector2 _input = Vector2.zero;
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+        /*if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
             if (!Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.D))
             {
@@ -119,12 +124,35 @@ public class Player_Controller : MonoBehaviour
         else
         {
             _input.x = 0;
+        }*/
+        if (derecha)
+        {
+            if (!izquierda)
+            {
+                _input.x = 0.25f;
+            }
+        }
+        else if (izquierda)
+        {
+            if (!derecha)
+            {
+                _input.x = -0.25f;
+            }
+        }
+        else
+        {
+            _input.x = 0;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (saltar)
         {
             _input.y = 1;
         }
+
+        /*if (Input.GetKeyDown(KeyCode.Space))
+        {
+            _input.y = 1;
+        }*/
 
         return _input;
     }
