@@ -22,9 +22,19 @@ public class Bottom : MonoBehaviour
         Botom.derecha = true;
     }
 
+    public void DerechaOff()
+    {
+        Botom.derecha = false;
+    }
+
     public void IzquierdaOn()
     {
         Botom.izquierda = true;
+    }
+
+    public void IzquierdaOff()
+    {
+        Botom.izquierda = false;
     }
 
     public void SaltarOn()
@@ -32,16 +42,18 @@ public class Bottom : MonoBehaviour
         Botom.saltar = true;
     }
 
+    public void SaltarOff()
+    {
+        Botom.saltar = false;
+    }
+
     public void AtacarOn()
     {
         Botom.atacar = true;
     }
 
-    public void Detener()
+    public void AtacarOff()
     {
-        Botom.derecha = false;
-        Botom.izquierda = false;
-        Botom.saltar = false;
         Botom.atacar = false;
     }
 }
