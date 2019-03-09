@@ -5,9 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class botonScript : MonoBehaviour
 {
-
-    
-
     public void Escene(string nombreEscena){
 		SceneManager.LoadScene(nombreEscena);
 	}
