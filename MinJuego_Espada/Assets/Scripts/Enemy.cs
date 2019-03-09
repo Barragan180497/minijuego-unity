@@ -11,7 +11,8 @@ public class Enemy : MonoBehaviour
     private Collider2D coll;
     private bool canJump = true, canDrop = true;
     private float height;
-    private int layerFloor, moveDir;
+    private int layerFloor;
+    private float moveDir;
     private Animator anim;
     private bool isDead = false;
 
@@ -44,7 +45,7 @@ public class Enemy : MonoBehaviour
         anim.SetBool("isGround", isGround());
         Move();
         Attack();
-        if (isGround() && canJump && CheckPlayerYPos() == "Over")
+        /*if (isGround() && canJump && CheckPlayerYPos() == "Over")
         {
             canJump = false;
             StartCoroutine(Jump());
@@ -53,7 +54,7 @@ public class Enemy : MonoBehaviour
         {
             canDrop = false;
             StartCoroutine(Drop());
-        }
+        }*/
     }
 
     void Attack()
@@ -64,7 +65,7 @@ public class Enemy : MonoBehaviour
             rb.velocity = Vector2.zero;
             rb.isKinematic = true;
             anim.SetTrigger("Attack");
-            Invoke("Die", 2);
+            //Invoke("Die", 2);
         }
     }
 
@@ -82,10 +83,10 @@ public class Enemy : MonoBehaviour
         }
         rb.velocity = new Vector2(moveDir * speed, rb.velocity.y);
 
-        int dir = PlayerPosX();
+        float dir = PlayerPosX();
         if (dir != 0)
         {
-            transform.localScale = new Vector3(dir, 1, 1);
+            transform.localScale = new Vector3(dir, 0.25f, 0.25f);
         }
     }
 
@@ -105,16 +106,16 @@ public class Enemy : MonoBehaviour
         canDrop = true;
     }
 
-    int PlayerPosX()
+    float PlayerPosX()
     {
         float diff = player.transform.position.x - transform.position.x;
         if (diff > 0.1f)
         {
-            return 1;
+            return 0.25f;
         }
         else if (diff < -0.1f)
         {
-            return -1;
+            return -0.25f;
         }
         else
         {
@@ -122,7 +123,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    string CheckPlayerYPos()
+    /*string CheckPlayerYPos()
     {
         float diff = player.transform.position.y - transform.position.y;
         if (diff > 3)
@@ -137,7 +138,7 @@ public class Enemy : MonoBehaviour
         {
             return "Same";
         }
-    }
+    }*/
 
     public bool isGround()
     {
