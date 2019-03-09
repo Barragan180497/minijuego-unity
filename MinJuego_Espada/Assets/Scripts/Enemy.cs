@@ -38,7 +38,9 @@ public class Enemy : MonoBehaviour
     private void FixedUpdate()
     {
         if (isDead)
+        {
             return;
+        }
         anim.SetBool("isGround", isGround());
         Move();
         Attack();
@@ -75,12 +77,16 @@ public class Enemy : MonoBehaviour
     void Move()
     {
         if (isGround())
+        {
             moveDir = PlayerPosX();
+        }
         rb.velocity = new Vector2(moveDir * speed, rb.velocity.y);
 
         int dir = PlayerPosX();
         if (dir != 0)
+        {
             transform.localScale = new Vector3(dir, 1, 1);
+        }
     }
 
     IEnumerator Jump()
@@ -103,22 +109,34 @@ public class Enemy : MonoBehaviour
     {
         float diff = player.transform.position.x - transform.position.x;
         if (diff > 0.1f)
+        {
             return 1;
+        }
         else if (diff < -0.1f)
+        {
             return -1;
+        }
         else
+        {
             return 0;
+        }
     }
 
     string CheckPlayerYPos()
     {
         float diff = player.transform.position.y - transform.position.y;
         if (diff > 3)
+        {
             return "Over";
+        }
         else if (diff < -3)
+        {
             return "Under";
+        }
         else
+        {
             return "Same";
+        }
     }
 
     public bool isGround()
