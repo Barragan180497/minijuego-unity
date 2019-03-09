@@ -2,14 +2,14 @@ fileFormatVersion: 2
 guid: 7a7b02b70ab478042b440baae0254c98
 TextureImporter:
   fileIDToRecycleName:
-    21300000: personaje2_0
-    21300002: personaje2_1
+    21300000: tronco_p2
+    21300002: cabeza_p2
     21300004: personaje2_2
     21300006: personaje2_3
     21300008: personaje2_4
-    21300010: personaje2_5
-    21300012: personaje2_6
-    21300014: personaje2_7
+    21300010: pieder_p2
+    21300012: manoder_espada_p2
+    21300014: manoizq_p2
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -103,7 +103,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: personaje2_0
+      name: tronco_p2
       rect:
         serializedVersion: 2
         x: 11
@@ -111,7 +111,7 @@ TextureImporter:
         width: 336
         height: 335
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -123,7 +123,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: personaje2_1
+      name: cabeza_p2
       rect:
         serializedVersion: 2
         x: 374
@@ -131,7 +131,7 @@ TextureImporter:
         width: 359
         height: 261
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -151,7 +151,7 @@ TextureImporter:
         width: 189
         height: 152
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -171,7 +171,7 @@ TextureImporter:
         width: 336
         height: 337
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -191,7 +191,7 @@ TextureImporter:
         width: 374
         height: 259
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -203,7 +203,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: personaje2_5
+      name: pieder_p2
       rect:
         serializedVersion: 2
         x: 798
@@ -211,7 +211,7 @@ TextureImporter:
         width: 212
         height: 138
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -223,7 +223,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: personaje2_6
+      name: manoder_espada_p2
       rect:
         serializedVersion: 2
         x: 69
@@ -231,7 +231,7 @@ TextureImporter:
         width: 662
         height: 144
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -243,16 +243,16 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: personaje2_7
+      name: manoizq_p2
       rect:
         serializedVersion: 2
         x: 801
-        y: 115
-        width: 205
-        height: 191
+        y: 172
+        width: 138
+        height: 77
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 4, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
