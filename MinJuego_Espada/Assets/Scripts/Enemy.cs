@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
     private int layerFloor;
     private float moveDir;
     private Animator anim;
-    private bool enemyCerca = false;
+    private bool isDead = false;
 
     private void Awake()
     {
@@ -31,14 +31,14 @@ public class Enemy : MonoBehaviour
 
     private void OnEnable()
     {
-        enemyCerca = false;
+        isDead = false;
         anim.SetTrigger("Spawn");
         rb.isKinematic = false;
     }
 
     private void FixedUpdate()
     {
-        if (enemyCerca)
+        if (isDead)
         {
             return;
         }
@@ -61,7 +61,7 @@ public class Enemy : MonoBehaviour
     {
         if (Vector3.Distance(player.transform.position, transform.position) < 0.3f)
         {
-            enemyCerca = true;
+            isDead = true;
             rb.velocity = Vector2.zero;
             rb.isKinematic = true;
             anim.SetTrigger("Attack");
