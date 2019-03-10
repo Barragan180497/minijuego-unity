@@ -147,4 +147,10 @@ public class Enemy : MonoBehaviour
         Debug.DrawRay(pos, -Vector2.up * 0.2f, Color.red);
         return bottom;
     }
+
+    void OnBecameInvisible()
+    {
+        transform.position = new Vector3(3.6f, -0.121f, 0);
+        transform.localScale = new Vector3(-0.25f, 0.25f, 0.25f);
+    }
 }
