@@ -133,6 +133,7 @@ MonoBehaviour:
   speed: 12
   jump: 11
   slashSpeed: 0.5
+  isDead: 0
   derecha: 0
   izquierda: 0
   saltar: 0
@@ -514,6 +515,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6005726, y: 11.479112}
   m_EdgeRadius: 0
+--- !u!114 &258328551 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6079379896691341987, guid: 258d0c0df4ff99e4480aed2c49e5d7cd,
+    type: 3}
+  m_PrefabInstance: {fileID: 130536817}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &300876012
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1096,6 +1109,18 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
+--- !u!114 &476015420 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1130791756344862758, guid: a61ffece72ff172459e25044a9a241d3,
+    type: 3}
+  m_PrefabInstance: {fileID: 572605432}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1584,6 +1609,44 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1072766319 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1130791754825353477, guid: a61ffece72ff172459e25044a9a241d3,
+    type: 3}
+  m_PrefabInstance: {fileID: 572605432}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1072766320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1072766319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4ca9fa7c6ea68c47bf1cc0904293769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pj1: {fileID: 87366509}
+  pc: {fileID: 1169648721}
+  contpj1: 0
+  contpc: 0
+  scorepj1: {fileID: 1130607215}
+  scorepc: {fileID: 476015420}
+  win_lose: {fileID: 1454791701}
+  lose: {fileID: 258328551}
+--- !u!114 &1130607215 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1130791755921637477, guid: a61ffece72ff172459e25044a9a241d3,
+    type: 3}
+  m_PrefabInstance: {fileID: 572605432}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1150066602
 GameObject:
   m_ObjectHideFlags: 0
@@ -1709,6 +1772,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   jump: 1
+  isDead: 0
 --- !u!1 &1204194938
 GameObject:
   m_ObjectHideFlags: 0

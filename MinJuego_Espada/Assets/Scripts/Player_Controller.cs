@@ -11,6 +11,7 @@ public class Player_Controller : MonoBehaviour
     private Animator anim;
     private bool canSlash = true;
     public float slashSpeed;
+    public bool isDead = false;
 
     public bool derecha = false;
     public bool izquierda = false;
@@ -37,10 +38,11 @@ public class Player_Controller : MonoBehaviour
         Attacks();
     }
 
-    void OnBecameInvisible()
+    public void OnBecameInvisible()
     {
         transform.position = new Vector3(-3.6f, -0.121f, 0);
         transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
+        isDead = true;
     }
 
     void Move()

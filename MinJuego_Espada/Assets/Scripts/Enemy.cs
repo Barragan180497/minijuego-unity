@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
     private int layerFloor;
     private float moveDir;
     private Animator anim;
-    private bool isDead = false;
+    public bool isDead = false;
 
     private void Awake()
     {
@@ -59,9 +59,8 @@ public class Enemy : MonoBehaviour
 
     void Attack()
     {
-        if (Vector3.Distance(player.transform.position, transform.position) < 0.3f)
+        if (Vector3.Distance(player.transform.position, transform.position) < 2f)
         {
-            isDead = true;
             rb.velocity = Vector2.zero;
             rb.isKinematic = true;
             anim.SetTrigger("Attack");
@@ -152,5 +151,6 @@ public class Enemy : MonoBehaviour
     {
         transform.position = new Vector3(3.6f, -0.121f, 0);
         transform.localScale = new Vector3(-0.25f, 0.25f, 0.25f);
+        isDead = true;
     }
 }
