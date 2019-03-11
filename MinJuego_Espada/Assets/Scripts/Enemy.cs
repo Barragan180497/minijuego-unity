@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     private float moveDir;
     private Animator anim;
     public bool isDead = false;
+    public CapsuleCollider2D espada;
 
     Player_Controller pj;
 
@@ -66,16 +67,23 @@ public class Enemy : MonoBehaviour
         {
             rb.velocity = Vector2.zero;
             rb.isKinematic = true;
+            //espada.isTrigger = false;
             anim.SetTrigger("Attack");
         }
         
+        
     }
 
-    void OnTriggerEnter2D()
+    /*void OnCollisionEnter2D(Collision2D coll)
     {
-        rb.AddForce(Vector2.left * -0 * 6.5f, ForceMode2D.Impulse);
-    }
-    
+        if (coll.gameObject.tag == "Player")
+        {
+            Debug.Log("Machetasooo");
+            rb.AddForce(0,0, ForceMode2D.Impulse);
+            rb.isKinematic = false;
+        }
+    }*/
+
     public void PosInicialPlayer()
     {
         pj.transform.position = new Vector3(-3.6f, -0.121f, 0);

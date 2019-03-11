@@ -48,6 +48,30 @@ public class Player_Controller : MonoBehaviour
         PosInicialEnemy();
     }
 
+    public void EnemyKnockBack()
+    {
+        //jump = true;
+        Debug.Log("entre al metodo");
+        float side = Mathf.Sign(pc.transform.position.x - transform.position.x);
+        rb.isKinematic = true;
+        rb.AddForce(Vector2.left * side * 1.5f, ForceMode2D.Impulse);
+
+        //movement = false;
+        //Invoke("EnableMovement", 0.7f);
+
+        //Color color = new Color(255 / 255f, 106 / 255f, 0 / 255f);
+        //spr.color = color;
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Enemy")
+        {
+            Debug.Log("Entreee");
+            EnemyKnockBack();
+        }
+    }
+
     public void PosInicialEnemy()
     {
         pc.transform.position = new Vector3(3.6f, -0.121f, 0);
