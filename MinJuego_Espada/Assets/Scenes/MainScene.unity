@@ -1791,6 +1791,7 @@ MonoBehaviour:
   speed: 5
   jump: 1
   isDead: 0
+  espada: {fileID: 1965173194}
 --- !u!1 &1204194938
 GameObject:
   m_ObjectHideFlags: 0
