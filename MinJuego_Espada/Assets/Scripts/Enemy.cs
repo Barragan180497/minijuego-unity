@@ -29,12 +29,12 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void OnEnable()
+    /*private void OnEnable()
     {
         isDead = false;
         anim.SetTrigger("Spawn");
         rb.isKinematic = false;
-    }
+    }*/
 
     private void FixedUpdate()
     {
@@ -66,6 +66,7 @@ public class Enemy : MonoBehaviour
             anim.SetTrigger("Attack");
             //Invoke("Die", 2);
         }
+        
     }
 
     void Die()
@@ -81,7 +82,7 @@ public class Enemy : MonoBehaviour
             moveDir = PlayerPosX();
         }
         rb.velocity = new Vector2(moveDir * speed, rb.velocity.y);
-
+        anim.SetBool("Running", true);
         float dir = PlayerPosX();
         if (dir != 0)
         {
