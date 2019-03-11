@@ -151,7 +151,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.4204998, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -162,7 +162,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5, y: 7}
+  m_Size: {x: 4.1590004, y: 7}
   m_EdgeRadius: 0
 --- !u!50 &87366512
 Rigidbody2D:
@@ -2695,6 +2695,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 5637975652985621269, guid: c29cc39b454346246845bd849a9dcd89,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5637975652786712375, guid: c29cc39b454346246845bd849a9dcd89,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2895,11 +2900,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 5637975652985621269, guid: c29cc39b454346246845bd849a9dcd89,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c29cc39b454346246845bd849a9dcd89, type: 3}
 --- !u!1001 &5731329847430537027
@@ -2920,6 +2920,11 @@ PrefabInstance:
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 5731329846295376658, guid: 87701ab7fdc52d04c996ad1ad347f64c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5731329847208801483, guid: 87701ab7fdc52d04c996ad1ad347f64c,
         type: 3}
       propertyPath: m_Layer
       value: 9
@@ -2999,11 +3004,6 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 5731329847208801483, guid: 87701ab7fdc52d04c996ad1ad347f64c,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 5731329847208801481, guid: 87701ab7fdc52d04c996ad1ad347f64c,
         type: 3}
       propertyPath: m_SortingLayerID
@@ -3073,6 +3073,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingLayer
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5731329846295376663, guid: 87701ab7fdc52d04c996ad1ad347f64c,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.39377594
+      objectReference: {fileID: 0}
+    - target: {fileID: 5731329846295376663, guid: 87701ab7fdc52d04c996ad1ad347f64c,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 4.212448
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87701ab7fdc52d04c996ad1ad347f64c, type: 3}
