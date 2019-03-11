@@ -12,6 +12,7 @@ public class Player_Controller : MonoBehaviour
     private bool canSlash = true;
     public float slashSpeed;
     public bool isDead = false;
+    Enemy pc;
 
     public bool derecha = false;
     public bool izquierda = false;
@@ -25,6 +26,7 @@ public class Player_Controller : MonoBehaviour
         height = coll.bounds.extents.y + 0.05f;
         layerFloor = 1 << LayerMask.NameToLayer("Floor");
         anim = GetComponent<Animator>();
+        pc = GameObject.FindObjectOfType<Enemy>();
     }
 
     private void FixedUpdate()
@@ -43,6 +45,13 @@ public class Player_Controller : MonoBehaviour
         transform.position = new Vector3(-3.6f, -0.121f, 0);
         transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
         isDead = true;
+        PosInicialEnemy();
+    }
+
+    public void PosInicialEnemy()
+    {
+        pc.transform.position = new Vector3(3.6f, -0.121f, 0);
+        pc.transform.localScale = new Vector3(-0.25f, 0.25f, 0.25f);
     }
 
     void Move()

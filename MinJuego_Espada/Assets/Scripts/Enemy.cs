@@ -16,11 +16,14 @@ public class Enemy : MonoBehaviour
     private Animator anim;
     public bool isDead = false;
 
+    Player_Controller pj;
+
     private void Awake()
     {
         if (player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player");
+            pj = GameObject.FindObjectOfType<Player_Controller>();
             rb = GetComponent<Rigidbody2D>();
             coll = GetComponent<Collider2D>();
             height = coll.bounds.extents.y + 0.05f;
@@ -71,6 +74,12 @@ public class Enemy : MonoBehaviour
     void OnTriggerEnter2D()
     {
         rb.AddForce(Vector2.left * -0 * 6.5f, ForceMode2D.Impulse);
+    }
+    
+    public void PosInicialPlayer()
+    {
+        pj.transform.position = new Vector3(-3.6f, -0.121f, 0);
+        pj.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
     }
 
         void Die()
@@ -157,6 +166,7 @@ public class Enemy : MonoBehaviour
         transform.position = new Vector3(3.6f, -0.121f, 0);
         transform.localScale = new Vector3(-0.25f, 0.25f, 0.25f);
         isDead = true;
+        PosInicialPlayer();
     }
     
 }
