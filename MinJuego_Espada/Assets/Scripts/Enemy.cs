@@ -64,12 +64,16 @@ public class Enemy : MonoBehaviour
             rb.velocity = Vector2.zero;
             rb.isKinematic = true;
             anim.SetTrigger("Attack");
-            //Invoke("Die", 2);
         }
         
     }
 
-    void Die()
+    void OnTriggerEnter2D()
+    {
+        rb.AddForce(Vector2.left * -0 * 6.5f, ForceMode2D.Impulse);
+    }
+
+        void Die()
     {
         //Add to pool
         Destroy(gameObject);
@@ -154,4 +158,5 @@ public class Enemy : MonoBehaviour
         transform.localScale = new Vector3(-0.25f, 0.25f, 0.25f);
         isDead = true;
     }
+    
 }
