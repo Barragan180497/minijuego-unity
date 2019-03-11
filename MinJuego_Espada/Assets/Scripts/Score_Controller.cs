@@ -52,11 +52,13 @@ public class Score_Controller : MonoBehaviour
 
         if (contpj1 == 2)
         {
+            round.SetActive(false);
             win_lose.SetActive(true);
         }
         if (contpc == 2)
         {
             lose.text = "YOU LOSE!";
+            round.SetActive(false);
             win_lose.SetActive(true);
         }
     }
