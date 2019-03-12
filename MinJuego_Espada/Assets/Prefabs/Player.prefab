@@ -564,7 +564,7 @@ GameObject:
   - component: {fileID: 5637975652985621268}
   - component: {fileID: 5637975652985621271}
   - component: {fileID: 1618933353}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: manoder_espada_p1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -578,13 +578,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5637975652985621269}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.37, y: -0.14, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.8433915, w: 0.53729963}
+  m_LocalPosition: {x: -0.9, y: -1.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5637975653733584302}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -115}
 --- !u!212 &5637975652985621271
 SpriteRenderer:
   m_ObjectHideFlags: 0

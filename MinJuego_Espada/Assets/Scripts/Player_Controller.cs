@@ -65,6 +65,14 @@ public class Player_Controller : MonoBehaviour
         rb.AddForce(Vector2.left * side * 7f, ForceMode2D.Impulse);
     }
 
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Enemy")
+        {
+            col.SendMessage("PlayerKnockBack", transform.position.x);
+        }
+    }
+
     public void PosInicialEnemy()
     {
         pc.transform.position = new Vector3(3.6f, -0.121f, 0);

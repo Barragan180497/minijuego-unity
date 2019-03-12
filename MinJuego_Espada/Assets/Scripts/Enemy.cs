@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
     private Animator anim;
     public bool isDead = false;
     public CapsuleCollider2D espada;
+    private bool jumping;
 
     Player_Controller pj;
 
@@ -49,25 +50,22 @@ public class Enemy : MonoBehaviour
         anim.SetBool("isGround", isGround());
         Move();
         Attack();
-        /*if (isGround() && canJump && CheckPlayerYPos() == "Over")
+
+        if (jumping)
         {
-            canJump = false;
-            StartCoroutine(Jump());
+            rb.velocity = new Vector2(rb.velocity.x, 0);
+            rb.AddForce(Vector2.up * 6.5f, ForceMode2D.Impulse);
+            jumping = false;
         }
-        if (isGround() && canDrop && CheckPlayerYPos() == "Under")
-        {
-            canDrop = false;
-            StartCoroutine(Drop());
-        }*/
     }
 
     void Attack()
     {
-        if (Vector3.Distance(player.transform.position, transform.position) < 2f)
+        if (Vector3.Distance(player.transform.position, transform.position) < 1.8f)
         {
             rb.velocity = Vector2.zero;
             rb.isKinematic = true;
-            //espada.isTrigger = false;
+            //espada.isTrigger = true;
             anim.SetTrigger("Attack");
         }
         
@@ -80,6 +78,13 @@ public class Enemy : MonoBehaviour
         {
             col.SendMessage("EnemyKnockBack", transform.position.x);
         }
+    }
+
+    public void PlayerKnockBack(float playerPosX)
+    {
+        jumping = true;
+        float side = Mathf.Sign(playerPosX - transform.position.x);
+        rb.AddForce(Vector2.left * side * 7f, ForceMode2D.Impulse);
     }
 
     public void PosInicialPlayer()
