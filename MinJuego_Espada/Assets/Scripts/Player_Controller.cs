@@ -13,7 +13,9 @@ public class Player_Controller : MonoBehaviour
     public float slashSpeed;
     public bool isDead = false;
     Enemy pc;
-
+    private bool movement = true;
+    private SpriteRenderer spr;
+    private bool jumping;
     public bool derecha = false;
     public bool izquierda = false;
     public bool saltar = false;
@@ -27,6 +29,7 @@ public class Player_Controller : MonoBehaviour
         layerFloor = 1 << LayerMask.NameToLayer("Floor");
         anim = GetComponent<Animator>();
         pc = GameObject.FindObjectOfType<Enemy>();
+        spr = GetComponent<SpriteRenderer>();
     }
 
     private void FixedUpdate()
@@ -38,6 +41,13 @@ public class Player_Controller : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jump);
         }
         Attacks();
+
+        if (jumping)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, 0);
+            rb.AddForce(Vector2.up * 6.5f, ForceMode2D.Impulse);
+            jumping = false;
+        }
     }
 
     public void OnBecameInvisible()
@@ -48,28 +58,11 @@ public class Player_Controller : MonoBehaviour
         PosInicialEnemy();
     }
 
-    public void EnemyKnockBack()
+    public void EnemyKnockBack(float enemyPosX)
     {
-        //jump = true;
-        Debug.Log("entre al metodo");
-        float side = Mathf.Sign(pc.transform.position.x - transform.position.x);
-        rb.isKinematic = true;
-        rb.AddForce(Vector2.left * side * 1.5f, ForceMode2D.Impulse);
-
-        //movement = false;
-        //Invoke("EnableMovement", 0.7f);
-
-        //Color color = new Color(255 / 255f, 106 / 255f, 0 / 255f);
-        //spr.color = color;
-    }
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.tag == "Enemy")
-        {
-            Debug.Log("Entreee");
-            EnemyKnockBack();
-        }
+        jumping = true;
+        float side = Mathf.Sign(enemyPosX - transform.position.x);
+        rb.AddForce(Vector2.left * side * 7f, ForceMode2D.Impulse);
     }
 
     public void PosInicialEnemy()

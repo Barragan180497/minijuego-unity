@@ -74,15 +74,13 @@ public class Enemy : MonoBehaviour
         
     }
 
-    /*void OnCollisionEnter2D(Collision2D coll)
+    void OnTriggerEnter2D(Collider2D col)
     {
-        if (coll.gameObject.tag == "Player")
+        if (col.gameObject.tag == "Player")
         {
-            Debug.Log("Machetasooo");
-            rb.AddForce(0,0, ForceMode2D.Impulse);
-            rb.isKinematic = false;
+            col.SendMessage("EnemyKnockBack", transform.position.x);
         }
-    }*/
+    }
 
     public void PosInicialPlayer()
     {

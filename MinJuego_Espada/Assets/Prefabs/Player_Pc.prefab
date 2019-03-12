@@ -43,7 +43,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5731329846142433545}
   - component: {fileID: 5731329846142433544}
-  m_Layer: 0
+  - component: {fileID: 1307900644}
+  m_Layer: 9
   m_Name: manoizq_p2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,8 +99,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1338728239
-  m_SortingLayer: 1
+  m_SortingLayerID: -1329932455
+  m_SortingLayer: 2
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300014, guid: 7a7b02b70ab478042b440baae0254c98, type: 3}
   m_Color: {r: 1, g: 0.051886797, b: 0.051886797, a: 1}
@@ -112,6 +113,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!70 &1307900644
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5731329846142433546}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1.38, y: 0.77}
+  m_Direction: 1
 --- !u!1 &5731329846295376658
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,10 +140,12 @@ GameObject:
   - component: {fileID: 5731329846295376657}
   - component: {fileID: 5731329846295376656}
   - component: {fileID: 5731329846295376662}
-  - component: {fileID: 5731329846295376663}
-  m_Layer: 0
+  - component: {fileID: 1169648722}
+  - component: {fileID: 1169648726}
+  - component: {fileID: 4439597250783745527}
+  m_Layer: 9
   m_Name: Player_Pc
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -186,7 +205,71 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &5731329846295376663
+--- !u!212 &1169648722
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5731329846295376658}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 0
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!114 &1169648726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5731329846295376658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7936f6f8741a04545b10388017f4c135, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  jump: 1
+  isDead: 0
+  espada: {fileID: 1965173194}
+--- !u!61 &4439597250783745527
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -199,7 +282,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.026030064, y: 0.232131}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -210,7 +293,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5, y: 7}
+  m_Size: {x: 3.2920961, y: 6.815131}
   m_EdgeRadius: 0
 --- !u!1 &5731329846517779846
 GameObject:
@@ -222,7 +305,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5731329846517779845}
   - component: {fileID: 5731329846517779844}
-  m_Layer: 0
+  - component: {fileID: 1061030623}
+  m_Layer: 9
   m_Name: tronco_p2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -280,8 +364,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1338728239
-  m_SortingLayer: 1
+  m_SortingLayerID: -1329932455
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 7a7b02b70ab478042b440baae0254c98, type: 3}
   m_Color: {r: 0, g: 0.19188643, b: 1, a: 1}
@@ -294,6 +378,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &1061030623
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5731329846517779846}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.68
 --- !u!1 &5731329846750277414
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,7 +404,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5731329846750277413}
   - component: {fileID: 5731329846750277412}
-  m_Layer: 0
+  - component: {fileID: 40819218}
+  m_Layer: 9
   m_Name: cabeza_p2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -359,8 +460,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1338728239
-  m_SortingLayer: 1
+  m_SortingLayerID: -1329932455
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300002, guid: 7a7b02b70ab478042b440baae0254c98, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
@@ -373,6 +474,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &40819218
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5731329846750277414}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.53831375, y: -0.042563677}
+  serializedVersion: 2
+  m_Radius: 1.2141227
 --- !u!1 &5731329846953086740
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,7 +500,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5731329846953086747}
   - component: {fileID: 5731329846953086746}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pieizq_p2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -438,8 +555,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1338728239
-  m_SortingLayer: 1
+  m_SortingLayerID: -1329932455
+  m_SortingLayer: 2
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300010, guid: 7a7b02b70ab478042b440baae0254c98, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -462,7 +579,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5731329847201111754}
   - component: {fileID: 5731329847201111753}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pieder_p2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -517,8 +634,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1338728239
-  m_SortingLayer: 1
+  m_SortingLayerID: -1329932455
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300010, guid: 7a7b02b70ab478042b440baae0254c98, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -541,6 +658,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5731329847208801482}
   - component: {fileID: 5731329847208801481}
+  - component: {fileID: 1965173194}
   m_Layer: 0
   m_Name: manoder_espada_p2
   m_TagString: Untagged
@@ -596,8 +714,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1338728239
-  m_SortingLayer: 1
+  m_SortingLayerID: -1329932455
+  m_SortingLayer: 2
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300012, guid: 7a7b02b70ab478042b440baae0254c98, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
@@ -610,3 +728,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!70 &1965173194
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5731329847208801483}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.025511742, y: -0.019138372}
+  m_Size: {x: 6.671054, y: 0.48309022}
+  m_Direction: 1
