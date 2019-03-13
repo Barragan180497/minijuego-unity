@@ -104,7 +104,6 @@ public class Enemy : MonoBehaviour
             }
             hp_UI.fillAmount = (float)currentHp / hp;
         }
-
     }
 
     public void PlayerKnockBack(float playerPosX)
