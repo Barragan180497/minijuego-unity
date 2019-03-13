@@ -43,7 +43,6 @@ public class Player_Controller : MonoBehaviour
         if (jumping)
         {
             rb.velocity = new Vector2(rb.velocity.x, 0);
-            //rb.AddForce(Vector2.right * 30f, ForceMode2D.Impulse);
             rb.AddForce(Vector2.up * 10f, ForceMode2D.Impulse);
             jumping = false;
         }

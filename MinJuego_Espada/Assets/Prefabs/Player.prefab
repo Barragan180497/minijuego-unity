@@ -564,9 +564,10 @@ GameObject:
   - component: {fileID: 5637975652985621268}
   - component: {fileID: 5637975652985621271}
   - component: {fileID: 2613583326911462274}
+  - component: {fileID: 8858061896994719329}
   m_Layer: 0
   m_Name: manoder_espada_p1
-  m_TagString: Untagged
+  m_TagString: Espada
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -698,6 +699,22 @@ PolygonCollider2D:
       - {x: -1.81, y: -0.59999996}
       - {x: -1.62, y: -0.38}
       - {x: -1.55, y: -0.32}
+--- !u!58 &8858061896994719329
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5637975652985621269}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.97, y: 0.0000009536743}
+  serializedVersion: 2
+  m_Radius: 1.28
 --- !u!1 &5637975653733584303
 GameObject:
   m_ObjectHideFlags: 0

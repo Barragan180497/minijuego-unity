@@ -50,3 +50,6 @@ TagManager:
   - name: Enemy
     uniqueID: 2965034841
     locked: 0
+  - name: Canvas
+    uniqueID: 2817013589
+    locked: 0

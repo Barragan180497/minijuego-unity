@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
@@ -15,9 +16,13 @@ public class Enemy : MonoBehaviour
     private float moveDir;
     private Animator anim;
     public bool isDead = false;
-    public CapsuleCollider2D espada;
     private bool jumping;
     private bool movement = true;
+    public int hp;
+    private int currentHp;
+
+    public Image hp_UI;
+    public GameObject hp_Canvas;
 
     Player_Controller pj;
 
@@ -35,13 +40,6 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    /*private void OnEnable()
-    {
-        isDead = false;
-        anim.SetTrigger("Spawn");
-        rb.isKinematic = false;
-    }*/
-
     private void FixedUpdate()
     {
         if (isDead)
@@ -50,7 +48,7 @@ public class Enemy : MonoBehaviour
         }
         anim.SetBool("isGround", isGround());
 
-        if (Vector3.Distance(player.transform.position, transform.position) < 1.8f)
+        if (Vector3.Distance(player.transform.position, transform.position) < 2f)
         {
             Attack();
         }
@@ -58,7 +56,6 @@ public class Enemy : MonoBehaviour
         if (jumping)
         {
             rb.velocity = new Vector2(rb.velocity.x, 0);
-            //rb.AddForce(Vector2.left * 30f, ForceMode2D.Impulse);
             rb.AddForce(Vector2.up * 10f, ForceMode2D.Impulse);
             jumping = false;
         }
@@ -69,6 +66,14 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        isDead = false;
+        currentHp = hp;
+        hp_UI.fillAmount = 1;
+        hp_Canvas.SetActive(false);
+    }
+
     void Attack()
     {
         rb.velocity = Vector2.zero;
@@ -76,12 +81,30 @@ public class Enemy : MonoBehaviour
         anim.SetTrigger("Attack");      
     }
 
-    void OnTriggerEnter2D(Collider2D col)
+    public void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Player")
         {
             col.SendMessage("EnemyKnockBack", transform.position.x);
         }
+
+        if (col.CompareTag("Espada"))
+        {
+            if (currentHp == hp)
+            {
+                hp_Canvas.SetActive(true);
+            }
+            currentHp--;
+            if (currentHp <= 0)
+            {
+                isDead = true;
+                transform.position = new Vector3(3.6f, -0.121f, 0);
+                transform.localScale = new Vector3(-0.25f, 0.25f, 0.25f);
+                hp_Canvas.SetActive(true);
+            }
+            hp_UI.fillAmount = (float)currentHp / hp;
+        }
+
     }
 
     public void PlayerKnockBack(float playerPosX)
@@ -113,6 +136,7 @@ public class Enemy : MonoBehaviour
         if (dir != 0)
         {
             transform.localScale = new Vector3(dir, 0.25f, 0.25f);
+            hp_Canvas.transform.localScale = new Vector3(dir, 1, 1);
         }
     }
 
