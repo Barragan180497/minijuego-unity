@@ -14,7 +14,6 @@ public class Player_Controller : MonoBehaviour
     public bool isDead = false;
     Enemy pc;
     private bool movement = true;
-    private SpriteRenderer spr;
     private bool jumping;
     public bool derecha = false;
     public bool izquierda = false;
@@ -29,7 +28,6 @@ public class Player_Controller : MonoBehaviour
         layerFloor = 1 << LayerMask.NameToLayer("Floor");
         anim = GetComponent<Animator>();
         pc = GameObject.FindObjectOfType<Enemy>();
-        spr = GetComponent<SpriteRenderer>();
     }
 
     private void FixedUpdate()
@@ -45,7 +43,8 @@ public class Player_Controller : MonoBehaviour
         if (jumping)
         {
             rb.velocity = new Vector2(rb.velocity.x, 0);
-            rb.AddForce(Vector2.up * 6.5f, ForceMode2D.Impulse);
+            //rb.AddForce(Vector2.right * 30f, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.up * 10f, ForceMode2D.Impulse);
             jumping = false;
         }
     }
@@ -62,7 +61,7 @@ public class Player_Controller : MonoBehaviour
     {
         jumping = true;
         float side = Mathf.Sign(enemyPosX - transform.position.x);
-        rb.AddForce(Vector2.left * side * 7f, ForceMode2D.Impulse);
+        rb.AddForce(Vector2.left * side * 10f, ForceMode2D.Impulse);
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -149,24 +148,7 @@ public class Player_Controller : MonoBehaviour
     public Vector2 input()
     {
         Vector2 _input = Vector2.zero;
-        /*if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
-        {
-            if (!Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.D))
-            {
-                _input.x = -0.25f;
-            }
-        }
-        else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
-        {
-            if (!Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.A))
-            {
-                _input.x = 0.25f;
-            }
-        }
-        else
-        {
-            _input.x = 0;
-        }*/
+        
         if (derecha)
         {
             if (!izquierda)
@@ -190,11 +172,6 @@ public class Player_Controller : MonoBehaviour
         {
             _input.y = 1;
         }
-
-        /*if (Input.GetKeyDown(KeyCode.Space))
-        {
-            _input.y = 1;
-        }*/
 
         return _input;
     }

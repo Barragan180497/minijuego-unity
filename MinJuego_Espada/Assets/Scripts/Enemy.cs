@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
     public bool isDead = false;
     public CapsuleCollider2D espada;
     private bool jumping;
+    private bool movement = true;
 
     Player_Controller pj;
 
@@ -48,28 +49,31 @@ public class Enemy : MonoBehaviour
             return;
         }
         anim.SetBool("isGround", isGround());
-        Move();
-        Attack();
+
+        if (Vector3.Distance(player.transform.position, transform.position) < 1.8f)
+        {
+            Attack();
+        }
 
         if (jumping)
         {
             rb.velocity = new Vector2(rb.velocity.x, 0);
-            rb.AddForce(Vector2.up * 6.5f, ForceMode2D.Impulse);
+            //rb.AddForce(Vector2.left * 30f, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.up * 10f, ForceMode2D.Impulse);
             jumping = false;
+        }
+
+        if (movement)
+        {
+            Move();
         }
     }
 
     void Attack()
     {
-        if (Vector3.Distance(player.transform.position, transform.position) < 1.8f)
-        {
-            rb.velocity = Vector2.zero;
-            rb.isKinematic = true;
-            //espada.isTrigger = true;
-            anim.SetTrigger("Attack");
-        }
-        
-        
+        rb.velocity = Vector2.zero;
+        rb.isKinematic = false;
+        anim.SetTrigger("Attack");      
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -84,7 +88,10 @@ public class Enemy : MonoBehaviour
     {
         jumping = true;
         float side = Mathf.Sign(playerPosX - transform.position.x);
-        rb.AddForce(Vector2.left * side * 7f, ForceMode2D.Impulse);
+        rb.AddForce(Vector2.left * side * 10f, ForceMode2D.Impulse);
+
+        movement = false;
+        Invoke("Move", 1.5f);
     }
 
     public void PosInicialPlayer()
@@ -93,14 +100,9 @@ public class Enemy : MonoBehaviour
         pj.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
     }
 
-        void Die()
-    {
-        //Add to pool
-        Destroy(gameObject);
-    }
-
     void Move()
     {
+        movement = true;
         if (isGround())
         {
             moveDir = PlayerPosX();
