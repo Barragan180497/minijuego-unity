@@ -94,7 +94,7 @@ public class Player_Controller : MonoBehaviour
             currentHp--;
             if (currentHp <= 0)
             {
-                Invoke("OnBecameInvisible", 1.5f);
+                Invoke("OnBecameInvisible", 0.5f);
             }
             hp_UI.fillAmount = (float)currentHp / hp;
         }
