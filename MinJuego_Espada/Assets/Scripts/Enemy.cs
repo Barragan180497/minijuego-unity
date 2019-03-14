@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
     private bool movement = true;
     public int hp;
     private int currentHp;
+    private bool ataco = true; 
 
     public Image hp_UI;
     public GameObject hp_Canvas;
@@ -53,11 +54,11 @@ public class Enemy : MonoBehaviour
         {
             movement = true;
         }
-
+        
         if (jumping)
         {
             rb.velocity = new Vector2(rb.velocity.x, 0);
-            rb.AddForce(Vector2.up * 10f, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.up * 8f, ForceMode2D.Impulse);
             jumping = false;
         }
 
@@ -72,7 +73,6 @@ public class Enemy : MonoBehaviour
         isDead = false;
         currentHp = hp;
         hp_UI.fillAmount = 1;
-        hp_Canvas.SetActive(true);
     }
 
     void Attack()
@@ -99,7 +99,7 @@ public class Enemy : MonoBehaviour
             hp_UI.fillAmount = (float)currentHp / hp;
             if (currentHp <= 0)
             {
-                Invoke("OnBecameInvisible", 0.5f);
+                OnBecameInvisible();
             }
         }
     }
@@ -108,7 +108,7 @@ public class Enemy : MonoBehaviour
     {
         jumping = true;
         float side = Mathf.Sign(playerPosX - transform.position.x);
-        rb.AddForce(Vector2.left * side * 10f, ForceMode2D.Impulse);
+        rb.AddForce(Vector2.left * side * 8f, ForceMode2D.Impulse);
 
         movement = false;
         Invoke("Move", 1.5f);
@@ -202,6 +202,6 @@ public class Enemy : MonoBehaviour
         isDead = true;
         PosInicialPlayer();
         hp_UI.fillAmount = 1;
+        currentHp = 10;
     }
-    
 }

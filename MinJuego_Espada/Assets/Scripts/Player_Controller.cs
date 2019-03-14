@@ -49,7 +49,7 @@ public class Player_Controller : MonoBehaviour
         if (jumping)
         {
             rb.velocity = new Vector2(rb.velocity.x, 0);
-            rb.AddForce(Vector2.up * 10f, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.up * 8f, ForceMode2D.Impulse);
             jumping = false;
         }
     }
@@ -59,7 +59,6 @@ public class Player_Controller : MonoBehaviour
         isDead = false;
         currentHp = hp;
         hp_UI.fillAmount = 1;
-        hp_Canvas.SetActive(true);
     }
 
     public void OnBecameInvisible()
@@ -68,6 +67,7 @@ public class Player_Controller : MonoBehaviour
         transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
         isDead = true;
         PosInicialEnemy();
+        currentHp = 10;
         hp_UI.fillAmount = 1;
     }
 
@@ -75,7 +75,7 @@ public class Player_Controller : MonoBehaviour
     {
         jumping = true;
         float side = Mathf.Sign(enemyPosX - transform.position.x);
-        rb.AddForce(Vector2.left * side * 10f, ForceMode2D.Impulse);
+        rb.AddForce(Vector2.left * side * 8f, ForceMode2D.Impulse);
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -92,11 +92,11 @@ public class Player_Controller : MonoBehaviour
                 hp_Canvas.SetActive(true);
             }
             currentHp--;
+            hp_UI.fillAmount = (float)currentHp / hp;
             if (currentHp <= 0)
             {
-                Invoke("OnBecameInvisible", 0.5f);
+                OnBecameInvisible();
             }
-            hp_UI.fillAmount = (float)currentHp / hp;
         }
     }
 
@@ -128,12 +128,6 @@ public class Player_Controller : MonoBehaviour
 
     void Attacks()
     {
-        /*if (Input.GetMouseButtonDown(0) && canSlash)
-        {
-            //canShoot = false;
-            canSlash = false;
-            StartCoroutine(Slash());
-        }*/
         if (atacar && canSlash)
         {
             canSlash = false;
@@ -143,9 +137,6 @@ public class Player_Controller : MonoBehaviour
 
     IEnumerator Slash()
     {
-        //Instantiate  slash effect
-        //check colliders
-        //Do damage
         anim.SetTrigger("Slash");
         yield return new WaitForSeconds(slashSpeed);
         canSlash = true;
