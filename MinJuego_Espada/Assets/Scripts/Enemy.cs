@@ -100,11 +100,11 @@ public class Enemy : MonoBehaviour
                 hp_Canvas.SetActive(true);
             }
             currentHp--;
+            hp_UI.fillAmount = (float)currentHp / hp;
             if (currentHp <= 0)
             {
-                Invoke("OnBecameInvisible", 1.5f);
+                Invoke("OnBecameInvisible", 0.5f);
             }
-            hp_UI.fillAmount = (float)currentHp / hp;
         }
     }
 
@@ -205,6 +205,7 @@ public class Enemy : MonoBehaviour
         transform.localScale = new Vector3(-0.25f, 0.25f, 0.25f);
         isDead = true;
         PosInicialPlayer();
+        hp_UI.fillAmount = 1;
     }
     
 }

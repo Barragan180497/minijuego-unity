@@ -68,6 +68,7 @@ public class Player_Controller : MonoBehaviour
         transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
         isDead = true;
         PosInicialEnemy();
+        hp_UI.fillAmount = 1;
     }
 
     public void EnemyKnockBack(float enemyPosX)
