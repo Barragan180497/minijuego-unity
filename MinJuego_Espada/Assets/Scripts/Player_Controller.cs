@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player_Controller : MonoBehaviour
 {
@@ -19,6 +20,11 @@ public class Player_Controller : MonoBehaviour
     public bool izquierda = false;
     public bool saltar = false;
     public bool atacar = false;
+
+    public int hp;
+    private int currentHp;
+    public Image hp_UI;
+    public GameObject hp_Canvas;
 
     private void Awake()
     {
@@ -48,6 +54,14 @@ public class Player_Controller : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        isDead = false;
+        currentHp = hp;
+        hp_UI.fillAmount = 1;
+        hp_Canvas.SetActive(true);
+    }
+
     public void OnBecameInvisible()
     {
         transform.position = new Vector3(-3.6f, -0.121f, 0);
@@ -68,6 +82,20 @@ public class Player_Controller : MonoBehaviour
         if (col.gameObject.tag == "Enemy")
         {
             col.SendMessage("PlayerKnockBack", transform.position.x);
+        }
+
+        if (col.CompareTag("Espada"))
+        {
+            if (currentHp == hp)
+            {
+                hp_Canvas.SetActive(true);
+            }
+            currentHp--;
+            if (currentHp <= 0)
+            {
+                Invoke("OnBecameInvisible", 1.5f);
+            }
+            hp_UI.fillAmount = (float)currentHp / hp;
         }
     }
 
@@ -93,6 +121,7 @@ public class Player_Controller : MonoBehaviour
         if (dir != 0)
         {
             transform.localScale = new Vector3(dir, 0.25f, 0.25f);
+            hp_Canvas.transform.localScale = new Vector3(dir, 1, 1);
         }
     }
 

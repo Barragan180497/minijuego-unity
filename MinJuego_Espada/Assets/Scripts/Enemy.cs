@@ -42,15 +42,20 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (isDead)
+        /*if (isDead)
         {
             return;
-        }
+        }*/
         anim.SetBool("isGround", isGround());
 
         if (Vector3.Distance(player.transform.position, transform.position) < 2f)
         {
+            movement = false;
             Attack();
+        }
+        else
+        {
+            movement = true;
         }
 
         if (jumping)
@@ -71,7 +76,7 @@ public class Enemy : MonoBehaviour
         isDead = false;
         currentHp = hp;
         hp_UI.fillAmount = 1;
-        hp_Canvas.SetActive(false);
+        hp_Canvas.SetActive(true);
     }
 
     void Attack()
@@ -97,10 +102,7 @@ public class Enemy : MonoBehaviour
             currentHp--;
             if (currentHp <= 0)
             {
-                isDead = true;
-                transform.position = new Vector3(3.6f, -0.121f, 0);
-                transform.localScale = new Vector3(-0.25f, 0.25f, 0.25f);
-                hp_Canvas.SetActive(true);
+                Invoke("OnBecameInvisible", 1.5f);
             }
             hp_UI.fillAmount = (float)currentHp / hp;
         }
@@ -197,7 +199,7 @@ public class Enemy : MonoBehaviour
         return bottom;
     }
 
-    void OnBecameInvisible()
+    public void OnBecameInvisible()
     {
         transform.position = new Vector3(3.6f, -0.121f, 0);
         transform.localScale = new Vector3(-0.25f, 0.25f, 0.25f);
