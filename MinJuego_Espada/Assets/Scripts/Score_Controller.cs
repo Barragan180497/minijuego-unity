@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class Score_Controller : MonoBehaviour
 {
-    public GameObject pj1, pc;
     Player_Controller player;
     Enemy enemy;
     private int contpj1 = 0;
@@ -16,6 +15,7 @@ public class Score_Controller : MonoBehaviour
     public GameObject round;
     public Text round_text;
     private int countRound = 1;
+    public GameObject marcador;
 
 
     // Start is called before the first frame update
@@ -41,7 +41,7 @@ public class Score_Controller : MonoBehaviour
             countRound++;
             round_text.text = "Round " + countRound;
         }
-        else if(enemy.isDead)
+        else if (enemy.isDead)
         {
             contpj1++;
             scorepj1.text = contpj1.ToString();
@@ -54,12 +54,14 @@ public class Score_Controller : MonoBehaviour
         {
             round.SetActive(false);
             win_lose.SetActive(true);
+            marcador.SetActive(false);
         }
         if (contpc == 2)
         {
             lose.text = "YOU LOSE!";
             round.SetActive(false);
             win_lose.SetActive(true);
+            marcador.SetActive(false);
         }
     }
 }

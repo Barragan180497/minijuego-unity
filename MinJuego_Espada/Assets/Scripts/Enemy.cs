@@ -42,13 +42,9 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
-        /*if (isDead)
-        {
-            return;
-        }*/
         anim.SetBool("isGround", isGround());
 
-        if (Vector3.Distance(player.transform.position, transform.position) < 2f)
+        if (Vector3.Distance(player.transform.position, transform.position) < 1.8f)
         {
             movement = false;
             Attack();
