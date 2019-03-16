@@ -16,6 +16,8 @@ public class Score_Controller : MonoBehaviour
     public Text round_text;
     private int countRound = 1;
     public GameObject marcador;
+    private bool adsActivar = false;
+    LogicalAds ads;
 
 
     // Start is called before the first frame update
@@ -23,6 +25,7 @@ public class Score_Controller : MonoBehaviour
     {
         player = GameObject.FindObjectOfType<Player_Controller>();
         enemy = GameObject.FindObjectOfType<Enemy>();
+        ads = GameObject.FindObjectOfType<LogicalAds>();
         round.SetActive(true);
     }
 
@@ -55,6 +58,7 @@ public class Score_Controller : MonoBehaviour
             round.SetActive(false);
             win_lose.SetActive(true);
             marcador.SetActive(false);
+            LogicalAds.instance.MostrarInterstitial();
         }
         if (contpc == 2)
         {
@@ -62,6 +66,7 @@ public class Score_Controller : MonoBehaviour
             round.SetActive(false);
             win_lose.SetActive(true);
             marcador.SetActive(false);
+            LogicalAds.instance.MostrarInterstitial();
         }
     }
 }

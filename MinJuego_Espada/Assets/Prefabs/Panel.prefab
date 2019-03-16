@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1130791754825353530}
   - component: {fileID: 1130791754825353528}
   - component: {fileID: 1130791754825353531}
+  - component: {fileID: 1072766320}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -77,6 +78,25 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &1072766320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130791754825353477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4ca9fa7c6ea68c47bf1cc0904293769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scorepj1: {fileID: 1130791755921637477}
+  scorepc: {fileID: 1130791756344862758}
+  win_lose: {fileID: 0}
+  lose: {fileID: 0}
+  round: {fileID: 0}
+  round_text: {fileID: 0}
+  marcador: {fileID: 1130791754825353477}
 --- !u!1 &1130791755638364690
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,7 +164,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 9a30485aef507b348a80931397263091, type: 3}
-    m_FontSize: 40
+    m_FontSize: 35
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -223,7 +243,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 9a30485aef507b348a80931397263091, type: 3}
-    m_FontSize: 40
+    m_FontSize: 35
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -302,7 +322,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 9a30485aef507b348a80931397263091, type: 3}
-    m_FontSize: 40
+    m_FontSize: 35
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
